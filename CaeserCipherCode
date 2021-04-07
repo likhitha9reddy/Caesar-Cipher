@@ -1,0 +1,19 @@
+#read string length
+inputno = int(input())
+
+#read string
+inputstr = list(input())
+
+#read number for right shifting
+rshift = int(input())
+
+for i in range(inputno):
+  if inputstr[i].isalpha():  #check if all characters are alphabets
+  
+    #check if the characters are in upper case or lower case; ascii a = 97; ascii A = 65
+    a = 65 if inputstr[i].isupper() else 97  
+    
+    #after performing right shift, return the unicode of the specified character
+    inputstr[i] = chr(a + (ord(inputstr[i]) - a + rshift) % 26)
+    
+print(*inputstr, sep='')
